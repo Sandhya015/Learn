@@ -17,12 +17,12 @@ class Category(BaseModel):
 
 class Question(BaseModel):
     category = models.ForeignKey(Category, related_name='category' ,on_delete=models.CASCADE)
-    question= models.CharField(max_length=100)
+    question= models.CharField(max_length=150)
     marks = models.IntegerField(default=5)
 
 class Answer(BaseModel):
      question = models.ForeignKey(Question, related_name='question_answer',on_delete=models.CASCADE)
-     answer= models.CharField(max_length=100)
+     answer= models.CharField(max_length=150)
      is_correct = models.BooleanField(default=False)
 
 
