@@ -41,4 +41,4 @@ class Answer(BaseModel):
     is_correct = models.BooleanField(default=False)
     
     def __str__(self) -> str:
-        return self.answer
+        return self.answer;
