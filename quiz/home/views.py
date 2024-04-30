@@ -10,14 +10,27 @@ def home(request):
         categories = Category.objects.all()
         context = {'categories': categories}
         if request.GET.get('category'):
-            return redirect(f"/quiz/?category={request.GET.get('category')}")
+            category_name = request.GET.get('category')
+            return redirect(f"/quiz/?category={category_name}")
         return render(request, 'home.html', context)
     except Exception as e:
         logger.error(f"An error occurred in home view: {e}")
         return HttpResponse("Something went wrong")
 
 def quiz(request):
-    return render(request, 'quiz.html')
+    try:
+        category_name = request.GET.get('category')
+        if not category_name:
+            return HttpResponse("Category not provided")
+
+        questions = Question.objects.filter(category__category_name__iexact=category_name)
+
+        context = {'category_name': category_name, 'questions': questions}
+        return render(request, 'quiz.html', context)
+
+    except Exception as e:
+        logger.error(f"An error occurred in quiz view: {e}")
+        return HttpResponse("Something went wrong")
 
 def get_quiz(request):
     try:
@@ -26,7 +39,7 @@ def get_quiz(request):
             return JsonResponse({'status': False, 'message': 'Category not provided'})
         
         # Filter questions based on the category provided
-        questions = Question.objects.filter(category__category_name__icontains=category_name)
+        questions = Question.objects.filter(category__category_name__iexact=category_name)
         
         data = []
         for question in questions:
