@@ -1,4 +1,16 @@
-This is an quiz app done by using python and django
+Quiz App with Python and Django
+This repository contains a quiz application built using Python and the Django web framework. The quiz app allows users to take quizzes on various topics, view their scores, and compare their performance with others.
+
+Features
+User Authentication: Users can sign up, log in, and log out securely to access the quiz platform.
+Quiz Management: Admins can create, edit, and delete quizzes and questions through an intuitive admin interface.
+Take Quizzes: Registered users can take quizzes on different topics and receive immediate feedback on their performance.
+Score Tracking: Scores are recorded for each user, allowing them to track their progress over time.
+Leaderboard: Users can see how they rank compared to others on a global leaderboard.
+Responsive Design: The application is designed to be responsive, providing a seamless experience across devices.
+
+Access the application at http://localhost:8000 in your web browser.
+
 ![Screenshot from 2024-04-30 20-56-25](https://github.com/Sandhya015/Learn/assets/144054124/b5d36945-2371-4ac1-82c2-bb7ed5f4d8a5)
 ![Screenshot from 2024-04-30 20-56-49](https://github.com/Sandhya015/Learn/assets/144054124/128dfd72-07ac-42c0-8ec7-c1c32abe8c4a)
 ![Screenshot from 2024-04-30 20-58-37](https://github.com/Sandhya015/Learn/assets/144054124/c453f62a-f945-479e-a69f-48d57ff511da)
